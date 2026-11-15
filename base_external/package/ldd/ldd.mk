@@ -25,8 +25,8 @@ LDD_MODULE_SUBDIRS = misc-modules scull
 
 define LDD_BUILD_CMDS
     KERNELDIR=/lib/modules/$(LINUX_VERSION_PROBED)/build
-	$(MAKE) -C $(@D)/misc-modules modules
-	$(MAKE) -C $(@D)/scull modules
+	$(MAKE) -e -C $(@D)/misc-modules modules
+	$(MAKE) -e -C $(@D)/scull modules
 endef
 #
 #define LDD_INSTALL_TARGET_CMDS
