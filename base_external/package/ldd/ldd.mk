@@ -22,12 +22,12 @@ LDD_GIT_SUBMODULES = YES
 
 LDD_MODULE_SUBDIRS = misc-modules scull
 # LDD_MODULE_MAKE_OPTS = KERNELDIR=/lib/modules/$(LINUX_VERSION_PROBED)/build
-KERNELDIR = '/lib/modules/$(LINUX_VERSION_PROBED)/build'
+# KERNELDIR = '/lib/modules/$(LINUX_VERSION_PROBED)/build'
 
 define LDD_BUILD_CMDS
 	@echo "KERNELDIR=$(KERNELDIR)"
-	$(MAKE) -C $(@D)/misc-modules KERNELDIR=$(KERNELDIR) modules
-	$(MAKE)  -C $(@D)/scull KERNELDIR=$(KERNELDIR) modules
+	$(MAKE) -C $(@D)/misc-modules KERNELDIR=$(LINUX_DIR) modules
+	$(MAKE)  -C $(@D)/scull KERNELDIR=$(LINUX_DIR) modules
 endef
 #
 #define LDD_INSTALL_TARGET_CMDS
