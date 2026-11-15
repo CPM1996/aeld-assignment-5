@@ -22,12 +22,9 @@ LDD_GIT_SUBMODULES = YES
 
 LDD_MODULE_SUBDIRS = misc-modules scull
 # LDD_MODULE_MAKE_OPTS = KERNELDIR=/lib/modules/$(LINUX_VERSION_PROBED)/build
+KERNELDIR = '/lib/modules/$(LINUX_VERSION_PROBED)/build'
 
 define LDD_BUILD_CMDS
-    KERNELDIR="/lib/modules/$(LINUX_VERSION_PROBED)/build"
-	echo "LINUX_DIR=$(LINUX_DIR)"
-	echo "LINUX_VERSION=$(LINUX_VERSION)"
-	echo "LINUX_VERSION_PROBED=$(LINUX_VERSION_PROBED)"
 	echo "KERNELDIR=$(KERNELDIR)"
 	$(MAKE) -e -C $(@D)/misc-modules modules
 	$(MAKE) -e -C $(@D)/scull modules
