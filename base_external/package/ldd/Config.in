@@ -1,0 +1,5 @@
+
+config BR2_PACKAGE_LDD
+	bool "LDD"
+	help
+	  Includes the misc-modules and scull components into the root filesystem

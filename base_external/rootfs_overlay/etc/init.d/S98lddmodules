@@ -1,0 +1,28 @@
+#!/bin/sh
+
+KMODULES_DIR="/lib/modules/$(uname -r)/updates"
+
+case $1 in
+
+    start)
+        cd ${KMODULES_DIR}
+        /etc/init.d/module_load hello
+        /etc/init.d/scull_load
+        /etc/init.d/module_load faulty
+        Ret=0
+    ;;
+
+    stop)
+        /etc/init.d/module_unload faulty
+        /etc/init.d/scull_unload
+        /etc/init.d/module_unload hello
+        Ret=0
+    ;;
+
+    *)
+        echo "Use: $(basename $0) start|stop"
+        Ret=1
+    ;;
+esac
+
+exit ${Ret}
