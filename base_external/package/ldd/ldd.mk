@@ -21,9 +21,10 @@ LDD_GIT_SUBMODULES = YES
 # LDD_SITE_METHOD = local
 
 LDD_MODULE_SUBDIRS = misc-modules scull
-LDD_MODULE_MAKE_OPTS = KERNELDIR=/lib/modules/$(LINUX_VERSION_PROBED)/build
+# LDD_MODULE_MAKE_OPTS = KERNELDIR=/lib/modules/$(LINUX_VERSION_PROBED)/build
 
 define LDD_BUILD_CMDS
+    KERNELDIR=/lib/modules/$(LINUX_VERSION_PROBED)/build
 	$(MAKE) -C $(@D)/misc-modules modules
 	$(MAKE) -C $(@D)/scull modules
 endef
